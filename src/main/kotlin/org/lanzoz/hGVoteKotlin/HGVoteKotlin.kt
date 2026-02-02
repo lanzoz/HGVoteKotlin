@@ -22,7 +22,7 @@ class HGVoteKotlin : JavaPlugin() {
     override fun onEnable() {
         main = this;
         log = this.logger;
-        core = HGCore.main
+        core = HGCore.main;
         getCommand("vote")?.apply {
             setExecutor(VoteCommand())
             tabCompleter = TabComplete()

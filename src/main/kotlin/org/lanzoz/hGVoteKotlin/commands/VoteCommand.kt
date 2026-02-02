@@ -5,7 +5,7 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
-import org.lanzoz.hGCore.CT
+import org.lanzoz.hGCore.ClassicTranslate
 import org.lanzoz.hGVoteKotlin.HGVoteKotlin.Companion.log
 import org.lanzoz.hGVoteKotlin.PREFIX
 import org.lanzoz.hGVoteKotlin.util.VoteEvent
@@ -16,11 +16,11 @@ class VoteCommand : CommandExecutor {
 
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) {
-            log.info(CT("$PREFIX You can't use player command"))
+            log.info(ClassicTranslate("$PREFIX You can't use player command"))
             return true
         }
         if (args.size < 2) {
-            sender.sendMessage(CT("$PREFIX &cคุณต้องระบุคำสั่งและชื่อผู้เล่น: /vote <kick|ban> <ชื่อผู้เล่น>"))
+            sender.sendMessage(ClassicTranslate("$PREFIX &cคุณต้องระบุคำสั่งและชื่อผู้เล่น: /vote <kick|ban> <ชื่อผู้เล่น>"))
             return true
         }
 
@@ -35,7 +35,7 @@ class VoteCommand : CommandExecutor {
                 handleVote(sender, target, "แบน") { s, t -> voteEvent.voteBan(s, t) }
             }
             else -> {
-                sender.sendMessage(CT("$PREFIX &cคำสั่งไม่ถูกต้อง ใช้ได้แค่ /vote kick หรือ /vote ban"))
+                sender.sendMessage(ClassicTranslate("$PREFIX &cคำสั่งไม่ถูกต้อง ใช้ได้แค่ /vote kick หรือ /vote ban"))
             }
         }
 
@@ -44,10 +44,10 @@ class VoteCommand : CommandExecutor {
     private fun handleVote(sender: Player, target: Player?, actionName: String, callback: (Player, Player) -> Unit) {
         when {
             target == null -> {
-                sender.sendMessage(CT("$PREFIX &cไม่พบผู้เล่นที่ต้องการจะโหวต$actionName"))
+                sender.sendMessage(ClassicTranslate("$PREFIX &cไม่พบผู้เล่นที่ต้องการจะโหวต$actionName"))
             }
             target == sender -> {
-                sender.sendMessage(CT("$PREFIX &cคุณระบุชื่อตัวเองเพื่อให้คนอื่นโหวต เหร่อ?"))
+                sender.sendMessage(ClassicTranslate("$PREFIX &cคุณระบุชื่อตัวเองเพื่อให้คนอื่นโหวต เหร่อ?"))
             }
             else -> {
                 callback(sender, target)
