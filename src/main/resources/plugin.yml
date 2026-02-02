@@ -1,0 +1,15 @@
+name: HGVoteKotlin
+version: '1.0'
+main: org.lanzoz.hGVoteKotlin.HGVoteKotlin
+api-version: '1.21'
+prefix: HGVote
+load: POSTWORLD
+authors: [ LanzoZ ]
+commands:
+  vote:
+    description: "ใช้เพื่อเริ่มโหวต เตะหรือแบนผู้เล่น"
+    permissions:
+      HgVote:
+        default: true
+depend:
+  - HGCore
