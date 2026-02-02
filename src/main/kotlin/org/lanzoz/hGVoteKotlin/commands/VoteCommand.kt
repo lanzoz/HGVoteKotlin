@@ -5,6 +5,7 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+
 import org.lanzoz.hGCore.ClassicTranslate
 import org.lanzoz.hGVoteKotlin.HGVoteKotlin.Companion.log
 import org.lanzoz.hGVoteKotlin.PREFIX
